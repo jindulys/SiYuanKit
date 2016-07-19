@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
-  s.description  = "SiYuanKit is a personal swift toolbox."
+  s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
 
   s.homepage     = "https://github.com/jindulys/SiYuanKit"
 
-  s.license      = "MIT"
+  s.license      = "MIT Copyright (c) 2016 YANSONG LI. All rights reserved."
   s.author       = { "yansong li" => "857367901@qq.com" }
   s.source       = { :git => "https://github.com/jindulys/SiYuanKit.git", :tag => s.version }
 
