@@ -18,7 +18,6 @@
 		0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71B71D41C04500D41553 /* ExclusivityController.swift */; };
 		0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
-		0E9B71BD1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB131D3C7D7A00A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB161D3C7E6900A208FB /* OperationCondition.swift */; };
@@ -74,6 +73,7 @@
 		0EDABB181D3C7E6900A208FB /* YSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSOperationQueue.swift; sourceTree = "<group>"; };
 		0EDABB1A1D3C7E6900A208FB /* BlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockOperation.swift; sourceTree = "<group>"; };
 		0EDABB1B1D3C7E6900A208FB /* YSOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSOperation.swift; sourceTree = "<group>"; };
+		E020BB741D41CA6C00EA89C7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +119,7 @@
 		0E66C30F1D3C84D200500198 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				E020BB741D41CA6C00EA89C7 /* LICENSE */,
 			);
 			path = Metadata;
 			sourceTree = "<group>";
@@ -464,7 +465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E9B71BD1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0E66C3461D3C871500500198 /* ViewController.swift in Sources */,
 				0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */,
 			);

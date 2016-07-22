@@ -16,5 +16,5 @@ import Foundation
  */
 class ExclusivityController {
   static let sharedExclusivityController = ExclusivityController()
-  private let serialQueue = DispatchQueue
+//  private let serialQueue = DispatchQueue.global().async(group: <#T##DispatchGroup?#>, qos: <#T##DispatchQoS#>, flags: <#T##DispatchWorkItemFlags#>, execute: <#T##() -> Void#>)
 }
