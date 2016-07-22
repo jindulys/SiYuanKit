@@ -92,7 +92,6 @@ public enum GCDQueue: Comparable {
     - returns: the GCDQueue itself.
   */
   public func async(execute:() -> Void) -> GCDQueue {
-    
     return self
   }
 }
