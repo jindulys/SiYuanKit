@@ -15,6 +15,10 @@
 		0E66C34B1D3C871500500198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C34A1D3C871500500198 /* Assets.xcassets */; };
 		0E66C34E1D3C871500500198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C34C1D3C871500500198 /* LaunchScreen.storyboard */; };
 		0E66C3591D3C871500500198 /* SiYuanKit_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3581D3C871500500198 /* SiYuanKit_ExampleUITests.swift */; };
+		0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71B71D41C04500D41553 /* ExclusivityController.swift */; };
+		0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
+		0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
+		0E9B71BD1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB131D3C7D7A00A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB161D3C7E6900A208FB /* OperationCondition.swift */; };
@@ -59,6 +63,8 @@
 		0E66C3541D3C871500500198 /* SiYuanKit ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SiYuanKit ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E66C3581D3C871500500198 /* SiYuanKit_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiYuanKit_ExampleUITests.swift; sourceTree = "<group>"; };
 		0E66C35A1D3C871500500198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E9B71B71D41C04500D41553 /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
+		0E9B71BA1D41C67800D41553 /* GCDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDQueue.swift; sourceTree = "<group>"; };
 		0EDABAF71D3C73C600A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDABB051D3C74C800A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDABB0F1D3C7AED00A208FB /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -148,6 +154,14 @@
 			path = "SiYuanKit ExampleUITests";
 			sourceTree = "<group>";
 		};
+		0E9B71B91D41C5F300D41553 /* DispatchQueue */ = {
+			isa = PBXGroup;
+			children = (
+				0E9B71BA1D41C67800D41553 /* GCDQueue.swift */,
+			);
+			path = DispatchQueue;
+			sourceTree = "<group>";
+		};
 		0EDABAEB1D3C718600A208FB = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,7 @@
 		0EDABB0E1D3C7AED00A208FB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0E9B71B91D41C5F300D41553 /* DispatchQueue */,
 				0EDABB141D3C7E6900A208FB /* YSOperations */,
 				0EDABB111D3C7D7000A208FB /* SiYuan.h */,
 				0EDABB0F1D3C7AED00A208FB /* Info-iOS.plist */,
@@ -206,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				0EDABB181D3C7E6900A208FB /* YSOperationQueue.swift */,
+				0E9B71B71D41C04500D41553 /* ExclusivityController.swift */,
 			);
 			path = "Operation Queue";
 			sourceTree = "<group>";
@@ -448,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9B71BD1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0E66C3461D3C871500500198 /* ViewController.swift in Sources */,
 				0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */,
 			);
@@ -465,10 +482,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB201D3C7E6900A208FB /* BlockOperation.swift in Sources */,
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1E1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
+				0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB211D3C7E6900A208FB /* BlockOperation.swift in Sources */,
 				0EDABB231D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0EDABB1D1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
@@ -1073,6 +1093,7 @@
 				0E66C33C1D3C866900500198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E66C35B1D3C871500500198 /* Build configuration list for PBXNativeTarget "SiYuanKit Example" */ = {
 			isa = XCConfigurationList;
@@ -1081,6 +1102,7 @@
 				0E66C35D1D3C871500500198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E66C35E1D3C871500500198 /* Build configuration list for PBXNativeTarget "SiYuanKit ExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -1089,6 +1111,7 @@
 				0E66C3601D3C871500500198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EDABAEF1D3C718600A208FB /* Build configuration list for PBXProject "SiYuanKit" */ = {
 			isa = XCConfigurationList;

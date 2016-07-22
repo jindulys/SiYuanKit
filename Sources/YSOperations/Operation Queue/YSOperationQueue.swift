@@ -1,5 +1,6 @@
 //
 //  OperationQueue.swift
+//  SiYuanKit
 //
 //  Created by yansong li on 2016-07-17.
 //  Copyright © 2016 YANSONG LI. All rights reserved.
@@ -27,6 +28,13 @@ public class YSOperationQueue: OperationQueue {
         self.addOperation(op)
       }
       // TODO(simonli): deal with mutual exclusivity.
+      let concurrencyCategories: [String] = op.conditions.flatMap { condition in
+        if condition.dynamicType.isMutuallyExclusive { return nil }
+        return "\(condition.dynamicType)"
+      }
+      if !concurrencyCategories.isEmpty {
+        
+      }
       op.willEnqueue()
     } else {
       op.addCompletionBlock {
