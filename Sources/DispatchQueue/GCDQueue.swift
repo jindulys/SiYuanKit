@@ -1,5 +1,5 @@
 //
-//  GCD.swift
+//  GCDQueue.swift
 //  SiYuanKit
 //
 //  Created by yansong li on 2016-07-21.
@@ -33,6 +33,15 @@ public enum GCDQueue: Comparable {
   
   /// A concurrent queue, which a name and QOS class.
   indirect case concurrent(String, GCDQueue)
+  
+  
+  private var dummySerial: GCDQueue {
+    return .serial("dummy", .background)
+  }
+  
+  private var dummyConcurrent: GCDQueue {
+    return .concurrent("dummy", .background)
+  }
   
   /// queue attribute.
   private var qos_attributes: DispatchQueueAttributes {
@@ -73,9 +82,9 @@ public enum GCDQueue: Comparable {
       return .main
     case .interactive, .initiated, .background, .utility:
       return DispatchQueue.global(attributes: qos_global_attributes)
-    case let .serial(name, qos) where qos < .serial:
+    case let .serial(name, qos) where qos < dummySerial:
       return DispatchQueue(label: name, attributes: [.serial, qos_attributes])
-    case let .concurrent(name, qos) where qos < .concurrent:
+    case let .concurrent(name, qos) where qos < dummyConcurrent:
       return DispatchQueue(label: name, attributes: [.concurrent, qos_attributes])
     default:
       return .main
@@ -88,11 +97,18 @@ public enum GCDQueue: Comparable {
     Async takes a block parameter and run asynchronously.
     
     - parameter execute: the block to be executed.
-    
-    - returns: the GCDQueue itself.
   */
-  public func async(execute:() -> Void) -> GCDQueue {
-    return self
+  public func async(execute:() -> Void) {
+    self.queue.async(execute: execute)
+  }
+  
+  public func sync(execute:() -> Void) {
+    self.queue.sync(execute: execute)
+  }
+  
+  public func after(when: Double, execute:() -> Void) {
+    let delayTime = DispatchTime.now() + when
+    self.queue.after(when: delayTime, execute: execute)
   }
 }
 
