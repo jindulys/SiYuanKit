@@ -34,11 +34,12 @@ public enum GCDQueue: Comparable {
   /// A concurrent queue, which a name and QOS class.
   indirect case concurrent(String, GCDQueue)
   
-  
+  /// DummySerial queue for comparison.
   private var dummySerial: GCDQueue {
     return .serial("dummy", .background)
   }
   
+  /// DummyConcurrent queue for comparison.
   private var dummyConcurrent: GCDQueue {
     return .concurrent("dummy", .background)
   }
@@ -102,6 +103,12 @@ public enum GCDQueue: Comparable {
     self.queue.async(execute: execute)
   }
   
+  /**
+   Sync takes a block parameter and run asynchronously.
+   - NOTE: carefully use sync, do not sync on serial queue.
+   
+   - parameter execute: the block to be executed.
+   */
   public func sync(execute:() -> Void) {
     self.queue.sync(execute: execute)
   }

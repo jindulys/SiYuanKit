@@ -14,7 +14,23 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    self.testYSOperation()
+    let myFirstPromise = Promise<Int> { resolve, failure in
+//      Time.longRun(duration: 3.0)
+//      resolve(20)
+      GCDQueue.utility.after(when: 3.0, execute: {
+        print("Finished First Promise")
+        resolve(20)
+      })
+    }
+    myFirstPromise.name = "Fly"
+    let mysecondPromise = myFirstPromise.registerThen { (result) -> String in
+      return "String"
+    }
+    mysecondPromise.name = "SKY"
+    let myThirdPromise = mysecondPromise.then { (str) -> Float in
+      return 66.6
+    }
+    myThirdPromise.name = "Right"
   }
 
   override func didReceiveMemoryWarning() {

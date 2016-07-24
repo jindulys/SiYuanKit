@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2F7A681D441E3300EB52F3 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A671D441E3300EB52F3 /* Promise.swift */; };
+		0E2F7A691D441E3300EB52F3 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A671D441E3300EB52F3 /* Promise.swift */; };
+		0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A6B1D444CAC00EB52F3 /* Time.swift */; };
+		0E2F7A6D1D444CAC00EB52F3 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A6B1D444CAC00EB52F3 /* Time.swift */; };
 		0E66C3351D3C866900500198 /* SiYuanKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */; };
 		0E66C3371D3C866900500198 /* SiYuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; };
 		0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3431D3C871500500198 /* AppDelegate.swift */; };
@@ -48,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E2F7A671D441E3300EB52F3 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		0E2F7A6B1D444CAC00EB52F3 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		0E66C30E1D3C844600500198 /* SiYuanKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SiYuanKit.playground; sourceTree = "<group>"; };
 		0E66C3321D3C866900500198 /* SiYuanKit iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SiYuanKit iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiYuanKit_iOSTests.swift; sourceTree = "<group>"; };
@@ -116,6 +122,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E2F7A661D441E0200EB52F3 /* Then */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F7A671D441E3300EB52F3 /* Promise.swift */,
+			);
+			path = Then;
+			sourceTree = "<group>";
+		};
+		0E2F7A6A1D444C7B00EB52F3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F7A6B1D444CAC00EB52F3 /* Time.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0E66C30F1D3C84D200500198 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +213,8 @@
 		0EDABB0E1D3C7AED00A208FB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0E2F7A6A1D444C7B00EB52F3 /* Utilities */,
+				0E2F7A661D441E0200EB52F3 /* Then */,
 				0E9B71B91D41C5F300D41553 /* DispatchQueue */,
 				0EDABB141D3C7E6900A208FB /* YSOperations */,
 				0EDABB111D3C7D7000A208FB /* SiYuan.h */,
@@ -484,7 +508,9 @@
 			files = (
 				0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB201D3C7E6900A208FB /* BlockOperation.swift in Sources */,
+				0E2F7A681D441E3300EB52F3 /* Promise.swift in Sources */,
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
+				0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */,
 				0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1E1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
 				0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */,
@@ -497,9 +523,11 @@
 			files = (
 				0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB211D3C7E6900A208FB /* BlockOperation.swift in Sources */,
+				0E2F7A6D1D444CAC00EB52F3 /* Time.swift in Sources */,
 				0EDABB231D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0EDABB1D1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1F1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
+				0E2F7A691D441E3300EB52F3 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
