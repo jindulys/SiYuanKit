@@ -24,9 +24,6 @@ public class Promise<T> {
   public typealias RejectCallBack = (ErrorProtocol) -> Void
   public typealias PromiseCallBack = (resolve: ResolveCallBack, reject: RejectCallBack) -> Void
   
-  /// name label.
-  public var name: String?
-  
   /// Success block to be executed on success.
   private var successBlock: ResolveCallBack = { t in }
   
@@ -105,6 +102,52 @@ public class Promise<T> {
     return p
   }
   
+  // MARK: - then((T) -> Promise<X>)
+  
+  public func then<X>(block:(T) -> Promise<X>) -> Promise<X>{
+    tryPreStartPromise()
+    startPromiseIfNeeded()
+    return registerThen(block: block)
+  }
+  
+  public func registerThen<X>(block:(T) -> Promise<X>) -> Promise<X>{
+    let p = Promise<X>{ resolve, reject in
+      switch self.state {
+      case .FulFilled:
+        self.registerNextPromise(block: block, result: self.value!,resolve:resolve,reject:reject)
+      case .Rejected:
+        reject(self.error!)
+      case .Pending:
+        self.successBlock = { t in
+          self.registerNextPromise(block: block, result: t,resolve:resolve,reject:reject)
+        }
+        self.failBlock = reject
+      }
+    }
+    p.start()
+    passAlongFirstPromiseStartFunctionAndStateTo(next: p)
+    return p
+  }
+  
+  // MARK: - then(Promise<X>)
+  
+  public func then<X>(p:Promise<X>) -> Promise<X>{
+    return then { _ in p }
+  }
+  
+  public func registerThen<X>(p:Promise<X>) -> Promise<X>{
+    return registerThen { _ in p }
+  }
+  
+  //MARK: - Error
+  @discardableResult
+  public func onError(block:(ErrorProtocol) -> Void) -> Self  {
+    startPromiseIfNeeded()
+    if state == .Rejected { block(error!) }
+    else { failBlock = block }
+    return self
+  }
+  
   // MARK: - Helpers
   
   private func tryPreStartPromise() {
@@ -134,6 +177,16 @@ public class Promise<T> {
     self.successBlock = { r in
       resolve(block(r))
     }
+  }
+  
+  private func registerNextPromise<X>(block:(T) -> Promise<X>,
+                                     result:T,
+                                    resolve:(X) -> Void,
+                                     reject:RejectCallBack) {
+    let nextPromise:Promise<X> = block(result)
+    nextPromise.then { x in
+      resolve(x)
+    }.onError(block: reject)
   }
   
   /// Called on success
