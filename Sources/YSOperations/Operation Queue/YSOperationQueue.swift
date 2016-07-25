@@ -20,20 +20,32 @@ public class YSOperationQueue: OperationQueue {
   
   public override func addOperation(_ op: Operation) {
     if let op = op as? YSOperation {
+      let delegate = BlockObserver(startHandler: nil,
+                                   produceHandler: { [weak self] in
+                                     self?.addOperation($1)
+                                   },
+                                   finishHandler: nil)
+      op.addObserver(observer: delegate)
+      
       let dependenciesFromConditions = op.conditions.flatMap {
         $0.dependencyFor(operation:op)
       }
+      
       for dependency in dependenciesFromConditions {
         op.addDependency(dependency)
-        self.addOperation(op)
+        self.addOperation(dependency)
       }
-      // TODO(simonli): deal with mutual exclusivity.
+      
       let concurrencyCategories: [String] = op.conditions.flatMap { condition in
         if condition.dynamicType.isMutuallyExclusive { return nil }
         return "\(condition.dynamicType)"
       }
       if !concurrencyCategories.isEmpty {
-        
+        let exclusivityController = ExclusivityController.sharedExclusivityController
+        exclusivityController.add(operation: op, categories: concurrencyCategories)
+        op.addObserver(observer: BlockObserver { operation, _ in
+            ExclusivityController.sharedExclusivityController.remove(operation: operation, categories: concurrencyCategories)
+        })
       }
       op.willEnqueue()
     } else {

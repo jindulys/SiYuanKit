@@ -5,6 +5,7 @@
 //  Created by yansong li on 2016-07-21.
 //
 //
+// NOTE: No dependency
 
 import Foundation
 

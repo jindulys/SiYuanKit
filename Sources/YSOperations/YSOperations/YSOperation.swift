@@ -175,6 +175,13 @@ public class YSOperation: Operation {
     conditions.append(condition)
   }
   
+  private(set) var observers = [OperationObserver]()
+  
+  func addObserver(observer: OperationObserver) {
+    assert(state < .Executing, "Cannot modify observers after execution has begun.")
+    observers.append(observer)
+  }
+  
   private var _internalErrors = [ErrorProtocol]()
   
   /// Cancel this operation with \a error.

@@ -13,6 +13,10 @@
 		0E2F7A6D1D444CAC00EB52F3 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A6B1D444CAC00EB52F3 /* Time.swift */; };
 		0E2F7A6F1D4552BF00EB52F3 /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A6E1D4552BF00EB52F3 /* PromiseTests.swift */; };
 		0E2F7A711D4555D200EB52F3 /* GCDQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A701D4555D200EB52F3 /* GCDQueueTests.swift */; };
+		0E2F7A741D45638F00EB52F3 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */; };
+		0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */; };
+		0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
+		0E2F7A781D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
 		0E66C3351D3C866900500198 /* SiYuanKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */; };
 		0E66C3371D3C866900500198 /* SiYuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; };
 		0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3431D3C871500500198 /* AppDelegate.swift */; };
@@ -58,6 +62,8 @@
 		0E2F7A6B1D444CAC00EB52F3 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		0E2F7A6E1D4552BF00EB52F3 /* PromiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
 		0E2F7A701D4555D200EB52F3 /* GCDQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDQueueTests.swift; sourceTree = "<group>"; };
+		0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
+		0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
 		0E66C30E1D3C844600500198 /* SiYuanKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SiYuanKit.playground; sourceTree = "<group>"; };
 		0E66C3321D3C866900500198 /* SiYuanKit iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SiYuanKit iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiYuanKit_iOSTests.swift; sourceTree = "<group>"; };
@@ -141,6 +147,16 @@
 			);
 			path = Utilities;
 			sourceTree = "<group>";
+		};
+		0E2F7A721D45627000EB52F3 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */,
+				0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */,
+			);
+			name = Observers;
+			path = Sources/YSOperations/Observers;
+			sourceTree = SOURCE_ROOT;
 		};
 		0E66C30F1D3C84D200500198 /* Metadata */ = {
 			isa = PBXGroup;
@@ -234,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				0EDABB151D3C7E6900A208FB /* Conditions */,
+				0E2F7A721D45627000EB52F3 /* Observers */,
 				0EDABB171D3C7E6900A208FB /* Operation Queue */,
 				0EDABB191D3C7E6900A208FB /* YSOperations */,
 			);
@@ -516,6 +533,8 @@
 			files = (
 				0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB201D3C7E6900A208FB /* BlockOperation.swift in Sources */,
+				0E2F7A741D45638F00EB52F3 /* OperationObserver.swift in Sources */,
+				0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */,
 				0E2F7A681D441E3300EB52F3 /* Promise.swift in Sources */,
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */,
@@ -529,9 +548,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2F7A781D45684A00EB52F3 /* BlockObserver.swift in Sources */,
 				0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */,
 				0EDABB211D3C7E6900A208FB /* BlockOperation.swift in Sources */,
 				0E2F7A6D1D444CAC00EB52F3 /* Time.swift in Sources */,
+				0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */,
 				0EDABB231D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0EDABB1D1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1F1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,

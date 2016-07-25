@@ -15,6 +15,48 @@ import Foundation
   regardless of the `OperationQueue` on which an `Operation` was executed.
  */
 class ExclusivityController {
+  /// Singleton instance.
   static let sharedExclusivityController = ExclusivityController()
-//  private let serialQueue = DispatchQueue.global().async(group: <#T##DispatchGroup?#>, qos: <#T##DispatchQoS#>, flags: <#T##DispatchWorkItemFlags#>, execute: <#T##() -> Void#>)
+  
+  /// Private Queue for execution.
+  private let serialQueue = GCDQueue.serial("exclusiveQueue", .utility)
+  
+  /// Dictionary for storing categories and operation list.
+  private var operations: [String: [YSOperation]] = [:]
+  
+  /// Add operation with categories which are exclusive one.
+  func add(operation: YSOperation, categories:[String]) {
+    serialQueue.sync { 
+      for category in categories {
+        self.add(operation: operation, category: category)
+      }
+    }
+  }
+  
+  func remove(operation: YSOperation, categories:[String]) {
+    serialQueue.async { 
+      for category in categories {
+        self.remove(operation: operation, category: category)
+      }
+    }
+  }
+  
+  func add(operation: YSOperation, category: String) {
+    var existingOperations = operations[category] ?? []
+    if let dependency = existingOperations.last {
+      operation.addDependency(dependency)
+    }
+    existingOperations.append(operation)
+    operations[category] = existingOperations
+  }
+  
+  func remove(operation: YSOperation, category: String) {
+    let matchingOperations = operations[category]
+    
+    if var operationsWithThisCategory = matchingOperations,
+      let index = operationsWithThisCategory.index(of:operation) {
+      operationsWithThisCategory.remove(at: index)
+      operations[category] = operationsWithThisCategory
+    }
+  }
 }
