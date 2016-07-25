@@ -243,7 +243,13 @@ public class YSOperation: Operation {
       state = .Finished
     }
   }
-  
+
+  final func produceOperation(operation: Operation) {
+    for observer in observers {
+      observer.operation(operation: self, didProduceOperation: operation)
+    }
+  }
+
   /**
     Subclasses may override `finished(_:)` if they wish to react to the operation
     finishing with errors. For example, the `LoadModelOperation` implements
