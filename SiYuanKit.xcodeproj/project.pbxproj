@@ -17,6 +17,8 @@
 		0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */; };
 		0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
 		0E2F7A781D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
+		0E5AB2791D499D740071B9C5 /* SiYuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; };
+		0E5AB27A1D499D740071B9C5 /* SiYuan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E66C3351D3C866900500198 /* SiYuanKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */; };
 		0E66C3371D3C866900500198 /* SiYuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; };
 		0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3431D3C871500500198 /* AppDelegate.swift */; };
@@ -41,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0E5AB27B1D499D740071B9C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EDABAEC1D3C718600A208FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EDABAF61D3C73C600A208FB;
+			remoteInfo = "SiYuan iOS";
+		};
 		0E66C3381D3C866900500198 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0EDABAEC1D3C718600A208FB /* Project object */;
@@ -56,6 +65,20 @@
 			remoteInfo = "SiYuanKit Example";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E5AB27D1D499D740071B9C5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E5AB27A1D499D740071B9C5 /* SiYuan.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E2F7A671D441E3300EB52F3 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
@@ -105,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5AB2791D499D740071B9C5 /* SiYuan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +354,12 @@
 				0E66C33D1D3C871500500198 /* Sources */,
 				0E66C33E1D3C871500500198 /* Frameworks */,
 				0E66C33F1D3C871500500198 /* Resources */,
+				0E5AB27D1D499D740071B9C5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0E5AB27C1D499D740071B9C5 /* PBXTargetDependency */,
 			);
 			name = "SiYuanKit Example";
 			productName = "SiYuanKit Example";
@@ -563,6 +589,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0E5AB27C1D499D740071B9C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EDABAF61D3C73C600A208FB /* SiYuan iOS */;
+			targetProxy = 0E5AB27B1D499D740071B9C5 /* PBXContainerItemProxy */;
+		};
 		0E66C3391D3C866900500198 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0EDABAF61D3C73C600A208FB /* SiYuan iOS */;
@@ -695,6 +726,7 @@
 		0E66C35C1D3C871500500198 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -732,7 +764,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SiYuanKit Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -749,6 +781,7 @@
 		0E66C35D1D3C871500500198 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -780,7 +813,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SiYuanKit Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yansong.li.SiYuanKit-Example";
