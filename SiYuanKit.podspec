@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Utilities' do |us|
+    us.dependency 'SiYuanKit/DispatchQueue'
     us.source_files = "Sources/Utilities/*.*"
   end
 
