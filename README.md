@@ -2,13 +2,13 @@
 
 My Swift Developing toolBox, adapted to Swift 3. The functional modules included in this toolKit are like following:
 
-DispatchQueue: Provide simplified operation around `DispatchQueue`.
+**DispatchQueue**: Provide simplified operation around `DispatchQueue`.
 
-Then: Light weight class for chainable taskes.
+**Then**: Light weight class for chainable taskes.
 
-Utilities: Convenience helpers.
+**Utilities**: Convenience helpers.
 
-YSOperations: Powerful wrapper around `Operation`.
+**YSOperations**: Powerful wrapper around `Operation`.
 
 ## Installation
 
