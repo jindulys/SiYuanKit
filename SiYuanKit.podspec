@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'YSOperations' do |ys|
     ys.dependency 'SiYuanKit/DispatchQueue'
-    ys.source_files = "Sources/YSOperations/*.*"
+    ys.source_files = "Sources/YSOperations/**/*.*"
   end
 
 end
