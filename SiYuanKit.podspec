@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.0.7"
+  s.version      = "1.0.8"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -13,10 +13,16 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
-  s.source_files = "Sources/**/*.*"
   s.requires_arc = true
+  s.default_subspec = 'Core'
 
   ### Subspecs
+
+  s.subspec 'Core' do |cs|
+    cs.dependency 'SiYuanKit/YSOperations'
+    cs.dependency 'SiYuanKit/Then'
+    cs.dependency 'SiYuanKit/Utilities'
+  end
 
   s.subspec 'DispatchQueue' do |ds|
     ds.source_files = "Sources/DispatchQueue/*.*"
@@ -29,6 +35,10 @@ Pod::Spec.new do |s|
   s.subspec 'YSOperations' do |ys|
     ys.dependency 'SiYuanKit/DispatchQueue'
     ys.source_files = "Sources/YSOperations/**/*.*"
+  end
+
+  s.subspec 'Utilities' do |us|
+    us.source_files = "Sources/Utilities/*.*"
   end
 
 end
