@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/jindulys/SiYuanKit"
 
-  s.license      = "MIT Copyright (c) 2016 YANSONG LI. All rights reserved."
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "yansong li" => "857367901@qq.com" }
   s.source       = { :git => "https://github.com/jindulys/SiYuanKit.git", :tag => s.version }
 
