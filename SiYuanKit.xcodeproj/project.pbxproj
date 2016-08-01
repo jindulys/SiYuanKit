@@ -34,6 +34,8 @@
 		0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71B71D41C04500D41553 /* ExclusivityController.swift */; };
 		0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
+		0EC5FE541D4EE9B7006E14C5 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */; };
+		0EC5FE571D4EEC61006E14C5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */; };
 		0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB131D3C7D7A00A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB161D3C7E6900A208FB /* OperationCondition.swift */; };
@@ -111,6 +113,8 @@
 		0E66C35A1D3C871500500198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E9B71B71D41C04500D41553 /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		0E9B71BA1D41C67800D41553 /* GCDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDQueue.swift; sourceTree = "<group>"; };
+		0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		0EDABAF71D3C73C600A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDABB051D3C74C800A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDABB0F1D3C7AED00A208FB /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		0E53FAC31D4E98E60017D932 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0EC5FE551D4EEB61006E14C5 /* Extension */,
 				0E53FAC41D4E98E60017D932 /* StaticTableView */,
 			);
 			path = UI;
@@ -213,6 +218,7 @@
 			children = (
 				0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */,
 				0E53FACA1D4EAC110017D932 /* Value1Cell.swift */,
+				0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -264,6 +270,14 @@
 				0E9B71BA1D41C67800D41553 /* GCDQueue.swift */,
 			);
 			path = DispatchQueue;
+			sourceTree = "<group>";
+		};
+		0EC5FE551D4EEB61006E14C5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		0EDABAEB1D3C718600A208FB = {
@@ -603,10 +617,12 @@
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0E53FAC61D4E99340017D932 /* Row.swift in Sources */,
 				0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */,
+				0EC5FE571D4EEC61006E14C5 /* UIViewExtensions.swift in Sources */,
 				0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1E1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
 				0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */,
 				0E53FACB1D4EAC110017D932 /* Value1Cell.swift in Sources */,
+				0EC5FE541D4EE9B7006E14C5 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
