@@ -10,6 +10,10 @@ import Foundation
 
 /// Manager to handle TableView related events.
 public class TableViewManager: NSObject {
+  
+  /// The Identifiers registered to the `tableView`.
+  public var registeredCellIdentifiers: [String] = []
+  
   /**
     tableView object managed by this Manager.
    */
@@ -24,9 +28,6 @@ public class TableViewManager: NSObject {
       refreshTableView()
     }
   }
-  
-  /// The Identifiers registered to the `tableView`.
-  public var registeredCellIdentifiers: [String] = []
   
   /// An array of Row data.
   public var rows: [Row] = [] {
@@ -80,8 +81,7 @@ extension TableViewManager: UITableViewDelegate {
   public func tableView(_ tableView: UITableView,
            didSelectRowAt indexPath: IndexPath) {
     let row = rows[indexPath.row]
-    if let action = row.action {
-      action()
-    }
+    row.action?()
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
