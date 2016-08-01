@@ -17,6 +17,10 @@
 		0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */; };
 		0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
 		0E2F7A781D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
+		0E53FAC61D4E99340017D932 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FAC51D4E99340017D932 /* Row.swift */; };
+		0E53FAC91D4E9EBA0017D932 /* StaticCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */; };
+		0E53FACB1D4EAC110017D932 /* Value1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FACA1D4EAC110017D932 /* Value1Cell.swift */; };
+		0E53FACD1D4EB24D0017D932 /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FACC1D4EB24D0017D932 /* TableViewManager.swift */; };
 		0E5AB2791D499D740071B9C5 /* SiYuan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; };
 		0E5AB27A1D499D740071B9C5 /* SiYuan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDABAF71D3C73C600A208FB /* SiYuan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E66C3351D3C866900500198 /* SiYuanKit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */; };
@@ -87,6 +91,10 @@
 		0E2F7A701D4555D200EB52F3 /* GCDQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDQueueTests.swift; sourceTree = "<group>"; };
 		0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
 		0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
+		0E53FAC51D4E99340017D932 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticCellType.swift; sourceTree = "<group>"; };
+		0E53FACA1D4EAC110017D932 /* Value1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value1Cell.swift; sourceTree = "<group>"; };
+		0E53FACC1D4EB24D0017D932 /* TableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
 		0E66C30E1D3C844600500198 /* SiYuanKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SiYuanKit.playground; sourceTree = "<group>"; };
 		0E66C3321D3C866900500198 /* SiYuanKit iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SiYuanKit iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E66C3341D3C866900500198 /* SiYuanKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiYuanKit_iOSTests.swift; sourceTree = "<group>"; };
@@ -182,6 +190,33 @@
 			path = Sources/YSOperations/Observers;
 			sourceTree = SOURCE_ROOT;
 		};
+		0E53FAC31D4E98E60017D932 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E53FAC41D4E98E60017D932 /* StaticTableView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0E53FAC41D4E98E60017D932 /* StaticTableView */ = {
+			isa = PBXGroup;
+			children = (
+				0E53FACC1D4EB24D0017D932 /* TableViewManager.swift */,
+				0E53FAC51D4E99340017D932 /* Row.swift */,
+				0E53FAC71D4E9E030017D932 /* Cells */,
+			);
+			path = StaticTableView;
+			sourceTree = "<group>";
+		};
+		0E53FAC71D4E9E030017D932 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */,
+				0E53FACA1D4EAC110017D932 /* Value1Cell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0E66C30F1D3C84D200500198 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +294,7 @@
 		0EDABB0E1D3C7AED00A208FB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0E53FAC31D4E98E60017D932 /* UI */,
 				0E9B71B91D41C5F300D41553 /* DispatchQueue */,
 				0E2F7A661D441E0200EB52F3 /* Then */,
 				0E2F7A6A1D444C7B00EB52F3 /* Utilities */,
@@ -558,15 +594,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */,
+				0E53FAC91D4E9EBA0017D932 /* StaticCellType.swift in Sources */,
 				0EDABB201D3C7E6900A208FB /* BlockOperation.swift in Sources */,
+				0E53FACD1D4EB24D0017D932 /* TableViewManager.swift in Sources */,
 				0E2F7A741D45638F00EB52F3 /* OperationObserver.swift in Sources */,
 				0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */,
 				0E2F7A681D441E3300EB52F3 /* Promise.swift in Sources */,
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
+				0E53FAC61D4E99340017D932 /* Row.swift in Sources */,
 				0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */,
 				0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
 				0EDABB1E1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
 				0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */,
+				0E53FACB1D4EAC110017D932 /* Value1Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
