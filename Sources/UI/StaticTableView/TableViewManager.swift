@@ -8,14 +8,14 @@
 
 import Foundation
 
+/// Representation of the style of tableViewData.
+public enum TableViewData {
+  case SingleSection([Row])
+  case MultiSection([Section])
+}
+
 /// Manager to handle TableView related events.
 public class TableViewManager: NSObject {
-  
-  /// Representation of the style of tableViewData.
-  public enum TableViewStyle {
-    case SingleSection([Row])
-    case MultiSection([Section])
-  }
   
   /// The Identifiers registered to the `tableView`.
   public var registeredCellIdentifiers: [String] = []
@@ -27,7 +27,6 @@ public class TableViewManager: NSObject {
     willSet {
       registeredCellIdentifiers = []
     }
-    
     didSet {
       tableView?.delegate = self
       tableView?.dataSource = self
@@ -36,19 +35,56 @@ public class TableViewManager: NSObject {
   }
   
   /// The data for this tableViewManager.
-  public var data: TableViewStyle = .SingleSection([]) {
+  public var data: TableViewData = .SingleSection([]) {
     didSet {
-      refreshTableView()
+      refreshTableView(oldData: oldValue)
     }
   }
 }
 
 // MARK: Helpers
 extension TableViewManager {
+
   /// Reload tableView and register cell.
-  private func refreshTableView() {
+  private func refreshTableView(oldData: TableViewData? = nil) {
+    updateTableViewLayout(oldData: oldData)
+    refreshRegisteredCells()
+  }
+
+  private func updateTableViewLayout(oldData: TableViewData? = nil) {
+    guard let old = oldData else {
+      tableView?.reloadData()
+      return
+    }
+    switch (old, data) {
+    case (.MultiSection(let oldSections),
+          .MultiSection(let newSections)):
+      let oldCount = oldSections.count
+      let newCount = newSections.count
+      let delta = newCount - oldCount
+
+      tableView?.beginUpdates()
+      if delta == 0 {
+        tableView?.reloadSections(IndexSet(integersIn: 0..<newCount), with: .automatic)
+      } else {
+        if delta > 0 {
+          print("\(oldCount..<newCount)")
+          tableView?.insertSections(IndexSet(integersIn: oldCount..<newCount),
+                                    with: .fade)
+        } else {
+          tableView?.deleteSections(IndexSet(integersIn: newCount..<oldCount), with: .right)
+        }
+        let commonCount = min(oldCount, newCount)
+        tableView?.reloadSections(IndexSet(integersIn: 0..<commonCount), with: .fade)
+      }
+      tableView?.endUpdates()
+    default:
+      tableView?.reloadData()
+    }
+  }
+
+  private func refreshRegisteredCells() {
     var rows: [Row] = []
-    
     switch data {
     case .SingleSection(let r):
       rows = r.filter { !self.registeredCellIdentifiers.contains($0.cellIdentifier) }
@@ -64,7 +100,6 @@ extension TableViewManager {
       self.registeredCellIdentifiers.append(row.cellIdentifier)
       self.tableView?.register(row.cellType, forCellReuseIdentifier: row.cellIdentifier)
     }
-    self.tableView?.reloadData()
   }
   
   /// Return row for specified index.

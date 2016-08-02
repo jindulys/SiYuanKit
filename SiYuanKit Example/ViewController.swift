@@ -23,22 +23,35 @@ class ViewController: UIViewController {
     tableManager.tableView = tableView
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 40
-    let row1:Row = Row(title: "Row1djakljdflkajsdlkfjaiosdjflkasjdfkljaskldjfklajsdflkjalksdjflkjasdlkfjlkasjdfkljasdlkfjlkajsdflkjaklsdjflkjasdlkfjlad", description: "Lala", image: nil, action: {
+    let row1:Row = Row(title:"Lala" , description:"Row1djakljdflkajsdlkfjaiosdjflkasjdfkljaskldjfklajsdflkjalksdjflkjasdlkfjlkasjdfkljasdlkfjlkajsdflkjaklsdjflkjasdlkfjlad", cellType: ItemCell.self, image: nil, action: {
         print("Out Out")
-      }, cellIdentifier: "cell1")
+      }, cellIdentifier: "item")
+
     let row2 = Row(title: "Row2", description: "This is a quite long sentence and i hope that this sentence could be truncated if needed, this means that I could happily go to sleep without any worries", cellType: ItemCell.self, cellIdentifier: "item")
+
+    let row5 = Row(title: "Row3", description: "HHHHHahahahahahahahahaha hahahahahah hahahahaha hhahahahahah ahahahahh", cellType: ItemCell.self, cellIdentifier: "item")
+
+    let row6 = Row(title: "Row4", description: "Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp Linkedin Facebook yelp", cellType: ItemCell.self, cellIdentifier: "item")
+
     let testRows = [row1, row2]
-    
+
     let row3 = row2
     let row4 = row2
-    
+
     let sections = Section(title: "Section1", rows: testRows)
-    
+
     let sec2 = Section(title: "Section2", rows: [row3, row4])
-    
+
+    let sec3 = Section(title: "Section3", rows:[row5, row6])
+
     tableManager.data = .SingleSection(testRows)
     GCDQueue.main.after(when: 3.0) { 
       self.tableManager.data = .MultiSection([sections, sec2])
+      GCDQueue.main.after(when: 3.0, execute: {
+        self.tableManager.data = .MultiSection([sections, sec2, sec3, sec3])
+        //self.tableManager.data = .MultiSection([sec2, sec3])
+        //self.tableManager.data = .MultiSection([sec3])
+      })
     }
   }
 
