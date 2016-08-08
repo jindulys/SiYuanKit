@@ -68,7 +68,6 @@ extension TableViewManager {
         tableView?.reloadSections(IndexSet(integersIn: 0..<newCount), with: .automatic)
       } else {
         if delta > 0 {
-          print("\(oldCount..<newCount)")
           tableView?.insertSections(IndexSet(integersIn: oldCount..<newCount),
                                     with: .fade)
         } else {

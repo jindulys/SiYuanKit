@@ -35,6 +35,7 @@
 		0E9B71B81D41C04500D41553 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71B71D41C04500D41553 /* ExclusivityController.swift */; };
 		0E9B71BB1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0E9B71BC1D41C67800D41553 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
+		0EC36E5F1D5830B500366936 /* RoundedViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC36E5E1D5830B500366936 /* RoundedViewViewController.swift */; };
 		0EC5FE541D4EE9B7006E14C5 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */; };
 		0EC5FE571D4EEC61006E14C5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */; };
 		0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,6 +116,7 @@
 		0E8A7EF01D4F945900DF0580 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		0E9B71B71D41C04500D41553 /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		0E9B71BA1D41C67800D41553 /* GCDQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDQueue.swift; sourceTree = "<group>"; };
+		0EC36E5E1D5830B500366936 /* RoundedViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViewViewController.swift; sourceTree = "<group>"; };
 		0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		0EDABAF71D3C73C600A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				0E66C3431D3C871500500198 /* AppDelegate.swift */,
+				0EC36E5E1D5830B500366936 /* RoundedViewViewController.swift */,
 				0E66C3451D3C871500500198 /* ViewController.swift */,
 				0E66C3471D3C871500500198 /* Main.storyboard */,
 				0E66C34A1D3C871500500198 /* Assets.xcassets */,
@@ -594,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E66C3461D3C871500500198 /* ViewController.swift in Sources */,
+				0EC36E5F1D5830B500366936 /* RoundedViewViewController.swift in Sources */,
 				0E66C3441D3C871500500198 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
