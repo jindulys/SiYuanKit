@@ -14,16 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.requires_arc = true
-  s.default_subspec = 'Core'
 
   ### Subspecs
-
-  s.subspec 'Core' do |cs|
-    cs.dependency 'SiYuanKit/YSOperations'
-    cs.dependency 'SiYuanKit/Then'
-    cs.dependency 'SiYuanKit/Utilities'
-    cs.dependency 'SiYuanKit/UI'
-  end
 
   s.subspec 'DispatchQueue' do |ds|
     ds.source_files = "Sources/DispatchQueue/*.*"
