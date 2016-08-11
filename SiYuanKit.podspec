@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.1.3"
+  s.version      = "1.1.4"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
     cs.dependency 'SiYuanKit/YSOperations'
     cs.dependency 'SiYuanKit/Then'
     cs.dependency 'SiYuanKit/Utilities'
+    cs.dependency 'SiYuanKit/UI'
   end
 
   s.subspec 'DispatchQueue' do |ds|
