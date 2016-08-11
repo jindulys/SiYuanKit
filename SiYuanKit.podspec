@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.1.5"
+  s.version      = "1.1.7"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -14,16 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.requires_arc = true
-  s.default_subspec = 'Core'
 
   ### Subspecs
-
-  s.subspec 'Core' do |cs|
-    cs.dependency 'SiYuanKit/YSOperations'
-    cs.dependency 'SiYuanKit/Then'
-    cs.dependency 'SiYuanKit/Utilities'
-    cs.dependency 'SiYuanKit/UI'
-  end
 
   s.subspec 'DispatchQueue' do |ds|
     ds.source_files = "Sources/DispatchQueue/*.*"
@@ -43,11 +35,6 @@ Pod::Spec.new do |s|
     us.source_files = "Sources/Utilities/*.*"
   end
 
-  s.subspec 'UI' do |is|
-    is.dependency 'SiYuanKit/StaticTableView'
-    is.dependency 'SiYuanKit/Extension'
-  end
-  
   s.subspec 'Extension' do |es|
     es.source_files = "Sources/UI/Extension/*.*"
   end  
