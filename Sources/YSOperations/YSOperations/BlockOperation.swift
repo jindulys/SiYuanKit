@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias OperationBlock = ((Void) -> Void) -> Void
+public typealias OperationBlock = (@escaping (Void) -> Void) -> Void
 
 public class BlockOperation: YSOperation {
   private let block: OperationBlock?
@@ -35,7 +35,7 @@ public class BlockOperation: YSOperation {
     the designated initializer). The operation will be automatically ended
     after the `mainQueueBlock` is executed.
    */
-  convenience init(mainQueueBlock: (Void) -> Void) {
+  convenience init(mainQueueBlock: @escaping (Void) -> Void) {
     self.init(block: { continuation in
       DispatchQueue.main.async {
         mainQueueBlock()
@@ -55,6 +55,6 @@ public class BlockOperation: YSOperation {
     }
   }
   
-  override func finished(errors: [ErrorProtocol]) {
+  override func finished(errors: [Error]) {
   }
 }

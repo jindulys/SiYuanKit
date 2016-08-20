@@ -23,5 +23,5 @@ protocol OperationObserver {
     Invoked as an `Operation` finishes, along with any errors produced during execution
     (or readiness evalution).
    */
-  func operationDidFinish(operation: YSOperation, errors: [ErrorProtocol])
+  func operationDidFinish(operation: YSOperation, errors: [Error])
 }

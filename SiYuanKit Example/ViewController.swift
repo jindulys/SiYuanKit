@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     tableManager.tableView = tableView
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 40
-    let row1:Row = Row(title:"Hello World" , description:"World is big", cellType: ItemCell.self, image: nil, action: {
-        let roundViewController = RoundedViewViewController()
-        self.navigationController?.pushViewController(roundViewController, animated: true)
-      }, cellIdentifier: "item")
+    let row1:Row = Row(title:"Hello World" , description:"World is big", image: nil, action: {
+      let roundViewController = RoundedViewViewController()
+      self.navigationController?.pushViewController(roundViewController, animated: true)
+      }, cellType: ItemCell.self, cellIdentifier: "item")
 
     let row2 = Row(title: "Swift", description: "This is a quite long sentence and i hope that this sentence could be truncated if needed, this means that I could happily go to sleep without any worries", cellType: ItemCell.self, cellIdentifier: "item")
 

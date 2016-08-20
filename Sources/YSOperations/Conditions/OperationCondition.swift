@@ -25,7 +25,7 @@ public protocol OperationCondition {
     Specifies whether multiple instances of the conditionalized operation may be executing
     simultaneously.
    */
-  static var isMutuallyExclusive: Bool { get }
+  var isMutuallyExclusive: Bool { get }
   
   /**
     Some conditions may have the ability to satisfy the condition if another operation is
@@ -47,9 +47,9 @@ public protocol OperationCondition {
 
 public enum OperationConditionResult {
   case Satisfied
-  case Failed(ErrorProtocol)
+  case Failed(Error)
   
-  var error: ErrorProtocol? {
+  var error: Error? {
     if case .Failed(let error) = self {
       return error
     }
@@ -64,7 +64,7 @@ struct OperationConditionEvaluator {
    */
   static func evaluate(conditions: [OperationCondition],
                        operation: YSOperation,
-                       completion: ([ErrorProtocol]) -> Void) {
+                       completion: @escaping ([Error]) -> Void) {
     let conditionGroup = DispatchGroup()
     
     var results = [OperationConditionResult?](repeating: .none, count: conditions.count)
@@ -78,7 +78,7 @@ struct OperationConditionEvaluator {
     }
     
     conditionGroup.notify(queue: DispatchQueue.global()) {
-      var failures: [ErrorProtocol] = results.flatMap { $0?.error }
+      var failures: [Error] = results.flatMap { $0?.error }
       if operation.isCancelled {
         failures.append(YSOperationError.conditionFailed)
       }

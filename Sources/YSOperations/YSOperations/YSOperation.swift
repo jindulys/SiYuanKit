@@ -35,17 +35,17 @@ private enum State: Int, Comparable {
   
   func canTransitionTo(state target: State) -> Bool {
     switch (self, target) {
-    case (Initialized, Pending):
+    case (.Initialized, .Pending):
       return true
-    case (Pending, EvaluatingConditions):
+    case (.Pending, .EvaluatingConditions):
       return true
-    case (EvaluatingConditions, Ready):
+    case (.EvaluatingConditions, .Ready):
       return true
-    case (Ready, Executing):
+    case (.Ready, .Executing):
       return true
-    case (Executing, Finishing):
+    case (.Executing, .Finishing):
       return true
-    case (Finishing, Finished):
+    case (.Finishing, .Finished):
       return true
     default:
       return false
@@ -71,22 +71,22 @@ public class YSOperation: Operation {
   
   // use the KVO mechanism to indicate that changes to "state" affect other properties as well.
   class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
-    return ["state"]
+    return ["state" as NSString]
   }
   
   class func keyPathsForValuesAffectingIsExecuting() -> Set<NSObject> {
-    return ["state"]
+    return ["state" as NSString]
   }
   
   class func keyPathsForValuesAffectingIsFinished() -> Set<NSObject> {
-    return ["state"]
+    return ["state" as NSString]
   }
   
   /// Private storage for the `state` property that will be KVO observed.
   private var _state = State.Initialized
   
   /// A lock to guard reads and writes to the `_state` property.
-  private let stateLock = Lock()
+  private let stateLock = NSLock()
   
   /// The computed variable of current state.
   private var state: State {
@@ -182,10 +182,10 @@ public class YSOperation: Operation {
     observers.append(observer)
   }
   
-  private var _internalErrors = [ErrorProtocol]()
+  private var _internalErrors = [Error]()
   
   /// Cancel this operation with \a error.
-  func cancelWithError(error: ErrorProtocol? = nil) {
+  func cancelWithError(error: Error? = nil) {
     if let error = error {
       _internalErrors.append(error)
     }
@@ -226,14 +226,14 @@ public class YSOperation: Operation {
     their readiness state.
    */
   func execute() {
-    print("\(self.dynamicType) must override `execute()`")
+    print("\(type(of: self)) must override `execute()`")
     finish()
   }
   
   private var hasFinishedAlready = false
   
   /// finish method need to be called when you finish.
-  final func finish(errors: [ErrorProtocol] = []) {
+  final func finish(errors: [Error] = []) {
     if !hasFinishedAlready {
       hasFinishedAlready = true
       state = .Finishing
@@ -256,7 +256,7 @@ public class YSOperation: Operation {
     this method to potentially inform the user about an error when trying to
     bring up the Core Data stack.
    */
-  func finished(errors: [ErrorProtocol]) {
+  func finished(errors: [Error]) {
     // No op.
   }
 }
@@ -264,13 +264,13 @@ public class YSOperation: Operation {
 /**
   A common error type for YSOperations.
  */
-public enum YSOperationError: ErrorProtocol {
+public enum YSOperationError: Error {
   /// Indicates that a condition of the Operation failed.
   case conditionFailed
 }
 
 extension Operation {
-  public func addCompletionBlock(_ block: (Void) -> Void) {
+  public func addCompletionBlock(_ block: @escaping (Void) -> Void) {
     if let existing = completionBlock {
       completionBlock = {
         block()
@@ -282,8 +282,8 @@ extension Operation {
   }
 }
 
-extension Lock {
-  func withCriticalScope<T>( _ block:@noescape() -> T) -> T {
+extension NSLock {
+  func withCriticalScope<T>( _ block: () -> T) -> T {
     self.lock()
     let result = block()
     self.unlock()

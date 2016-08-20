@@ -37,8 +37,8 @@ public class YSOperationQueue: OperationQueue {
       }
       
       let concurrencyCategories: [String] = op.conditions.flatMap { condition in
-        if condition.dynamicType.isMutuallyExclusive { return nil }
-        return "\(condition.dynamicType)"
+        if condition.isMutuallyExclusive { return nil }
+        return "\(type(of: condition))"
       }
       if !concurrencyCategories.isEmpty {
         let exclusivityController = ExclusivityController.sharedExclusivityController
