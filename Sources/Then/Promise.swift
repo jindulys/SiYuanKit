@@ -23,7 +23,8 @@ public typealias EmptyPromise = Promise<Void>
 public class Promise<T> {
   public typealias ResolveCallBack = (T) -> Void
   public typealias RejectCallBack = (Error) -> Void
-  public typealias PromiseCallBack = (_ resolve: ResolveCallBack, _ reject: RejectCallBack) -> Void
+  public typealias PromiseCallBack =
+			(_ resolve: @escaping ResolveCallBack, _ reject: @escaping RejectCallBack) -> Void
   
   /// Success block to be executed on success.
   private var successBlock: ResolveCallBack = { t in }
@@ -56,7 +57,7 @@ public class Promise<T> {
   var prePromiseStarted = false
   
   /// Designated Initializer.
-  public init(callBack: PromiseCallBack) {
+  public init(callBack: @escaping PromiseCallBack) {
     promiseCallBack = callBack
   }
   
@@ -132,17 +133,17 @@ public class Promise<T> {
   
   // MARK: - then(Promise<X>)
   
-  public func then<X>(p:Promise<X>) -> Promise<X>{
+  public func then<X>(p: Promise<X>) -> Promise<X>{
     return then { _ in p }
   }
   
-  public func registerThen<X>(p:Promise<X>) -> Promise<X>{
+  public func registerThen<X>(p: Promise<X>) -> Promise<X>{
     return registerThen { _ in p }
   }
   
   //MARK: - Error
   @discardableResult
-  public func onError(block:@escaping (Error) -> Void) -> Self  {
+  public func onError(block: @escaping (Error) -> Void) -> Self  {
     startPromiseIfNeeded()
     if state == .Rejected { block(error!) }
     else { failBlock = block }
@@ -174,17 +175,17 @@ public class Promise<T> {
     next.prePromiseStarted = self.prePromiseStarted
   }
   
-  private func registerSuccess<X>(resolve:@escaping (X) -> Void,
+  private func registerSuccess<X>(resolve: @escaping (X) -> Void,
                                     block: @escaping (T) -> X) {
     self.successBlock = { r in
       resolve(block(r))
     }
   }
   
-  private func registerNextPromise<X>(block:(T) -> Promise<X>,
-                                     result:T,
+  private func registerNextPromise<X>(block: (T) -> Promise<X>,
+                                     result: T,
                                     resolve: @escaping (X) -> Void,
-                                     reject:RejectCallBack) {
+                                     reject: @escaping RejectCallBack) {
     let nextPromise:Promise<X> = block(result)
     nextPromise.then { x in
       resolve(x)
