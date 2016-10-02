@@ -94,7 +94,7 @@ public class Promise<T> {
       }
     }
     /**
-     NOTE: The reason call start() here is it could effectively reflect updates on self.successBlock.
+     NOTE: The reason call start() here is that it could effectively reflect updates on self.successBlock.
      */
     p.start()
     /**
