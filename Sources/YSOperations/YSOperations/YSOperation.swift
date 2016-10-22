@@ -67,7 +67,7 @@ private func ==(lhs: State, rhs: State) -> Bool {
   extended readiness requirements, as well as notify many interested parties about
   interesting operation state changes
  */
-public class YSOperation: Operation {
+open class YSOperation: Operation {
   
   // use the KVO mechanism to indicate that changes to "state" affect other properties as well.
   class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
@@ -87,6 +87,9 @@ public class YSOperation: Operation {
   
   /// A lock to guard reads and writes to the `_state` property.
   private let stateLock = NSLock()
+
+  /// Internal Errors
+  private var _internalErrors = [Error]()
   
   /// The computed variable of current state.
   private var state: State {
@@ -121,7 +124,7 @@ public class YSOperation: Operation {
   }
   
   // Here is where we extend our definition of "readiness".
-  public override var isReady: Bool {
+  open override var isReady: Bool {
     switch state {
     case .Initialized:
       // If the operation has been cancelled, "isReady" should return true.
@@ -148,11 +151,11 @@ public class YSOperation: Operation {
     }
   }
   
-  public override var isExecuting: Bool {
+  open override var isExecuting: Bool {
     return state == .Executing
   }
   
-  public override var isFinished: Bool {
+  open override var isFinished: Bool {
     return state == .Finished
   }
   
@@ -170,22 +173,21 @@ public class YSOperation: Operation {
   private(set) var conditions = [OperationCondition]()
   
   /// Add \a condition for this operation.
-  func add(condition: OperationCondition) {
+  open func add(condition: OperationCondition) {
     assert(state < .EvaluatingConditions,"Cannot modify conditions after execution has begun.")
     conditions.append(condition)
   }
   
   private(set) var observers = [OperationObserver]()
   
-  func addObserver(observer: OperationObserver) {
+  open func addObserver(observer: OperationObserver) {
     assert(state < .Executing, "Cannot modify observers after execution has begun.")
     observers.append(observer)
   }
   
-  private var _internalErrors = [Error]()
   
   /// Cancel this operation with \a error.
-  func cancelWithError(error: Error? = nil) {
+  open func cancelWithError(error: Error? = nil) {
     if let error = error {
       _internalErrors.append(error)
     }
@@ -194,7 +196,7 @@ public class YSOperation: Operation {
   
   // MARK: Execution and Cancellation
   
-  public override func start() {
+  open override func start() {
     // NSOperation.start() contains important logic that shouldn't be bypassed.
     super.start()
     
@@ -204,7 +206,7 @@ public class YSOperation: Operation {
     }
   }
   
-  public override func main() {
+  open override func main() {
     assert(state == .Ready, "This operation must be performed on an operation queue.")
     state = .Executing
     if _internalErrors.isEmpty && !self.isCancelled {
@@ -227,7 +229,7 @@ public class YSOperation: Operation {
     finished its execution, and that operations dependent on yours can re-evaluate
     their readiness state.
    */
-  func execute() {
+  open func execute() {
     print("\(type(of: self)) must override `execute()`")
     finish()
   }
@@ -235,7 +237,7 @@ public class YSOperation: Operation {
   private var hasFinishedAlready = false
   
   /// finish method need to be called when you finish.
-  final func finish(errors: [Error] = []) {
+  public final func finish(errors: [Error] = []) {
     if !hasFinishedAlready {
       hasFinishedAlready = true
       state = .Finishing
@@ -248,7 +250,7 @@ public class YSOperation: Operation {
     }
   }
 
-  final func produceOperation(operation: Operation) {
+  public final func produceOperation(operation: Operation) {
     for observer in observers {
       observer.operation(operation: self, didProduceOperation: operation)
     }

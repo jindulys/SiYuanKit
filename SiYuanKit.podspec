@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.2.8"
+  s.version      = "1.2.10"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
