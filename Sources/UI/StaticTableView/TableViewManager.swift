@@ -79,8 +79,8 @@ extension TableViewManager {
 
   /// Reload tableView and register cell.
   fileprivate func refreshTableView(oldData: TableViewData? = nil) {
-    updateTableViewLayout(oldData: oldData)
     refreshRegisteredCells()
+    updateTableViewLayout(oldData: oldData)
   }
 
   private func updateTableViewLayout(oldData: TableViewData? = nil) {
