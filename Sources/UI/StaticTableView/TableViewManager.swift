@@ -29,6 +29,12 @@ open class TableViewManager: NSObject {
   /// The potential data source that provide data to this table view manager.
   public weak var dataSource: TableViewManagerDataSource?
   
+  /// This is used to control whether or not we will refresh data when new data comes.
+  /// This variable existing because we have two ways to refresh Table.
+  /// The first one is when data is set
+  /// The second one is when rows get stale and need updateStaledRows.
+  public var banRefreshTableWhenNewDataCome: Bool = false
+
   /**
     tableView object managed by this Manager.
    */
@@ -54,7 +60,9 @@ open class TableViewManager: NSObject {
   /// SubClass could subclass this method to get the entry point to configure the data.
   /// MUST CALL SUPER.
   open func dataValueUpdate(from: TableViewData?, to: TableViewData?) {
-    refreshTableView(oldData: from)
+    if !banRefreshTableWhenNewDataCome {
+      refreshTableView(oldData: from)
+    }
   }
 
   /// Require this table view manager to refresh its data.
@@ -99,6 +107,41 @@ extension TableViewManager {
         }
         let commonCount = min(oldCount, newCount)
         tableView?.reloadSections(IndexSet(integersIn: 0..<commonCount), with: .fade)
+      }
+      tableView?.endUpdates()
+    case (.SingleSection(let oldRows),
+          .SingleSection(let newRows)):
+      let oldRowsCount = oldRows.count
+      let newRowsCount = newRows.count
+      let delta = newRowsCount - oldRowsCount
+
+      tableView?.beginUpdates()
+      if delta == 0 {
+        var needUpdatedIndexPaths: [IndexPath] = []
+        for i in 0..<oldRowsCount {
+          needUpdatedIndexPaths.append(IndexPath(row: i, section: 0))
+        }
+        tableView?.reloadRows(at: needUpdatedIndexPaths, with: .automatic)
+      } else {
+        if delta > 0 {
+          var needInsertedIndexPaths: [IndexPath] = []
+          for i in oldRowsCount..<newRowsCount {
+            needInsertedIndexPaths.append(IndexPath(row: i, section: 0))
+          }
+          tableView?.insertRows(at: needInsertedIndexPaths, with: .right)
+        } else {
+          var needDeletedIndexPaths: [IndexPath] = []
+          for i in newRowsCount..<oldRowsCount {
+            needDeletedIndexPaths.append(IndexPath(row: i, section: 0))
+          }
+          tableView?.deleteRows(at: needDeletedIndexPaths, with: .right)
+        }
+        let commonCount = min(oldRowsCount, newRowsCount)
+        var needReloadedIndexPaths: [IndexPath] = []
+        for i in 0..<commonCount {
+          needReloadedIndexPaths.append(IndexPath(row: i, section: 0))
+        }
+        tableView?.reloadRows(at: needReloadedIndexPaths, with: .automatic)
       }
       tableView?.endUpdates()
     default:
