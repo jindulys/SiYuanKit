@@ -128,7 +128,7 @@ extension TableViewManager {
           for i in oldRowsCount..<newRowsCount {
             needInsertedIndexPaths.append(IndexPath(row: i, section: 0))
           }
-          tableView?.insertRows(at: needInsertedIndexPaths, with: .right)
+          tableView?.insertRows(at: needInsertedIndexPaths, with: .fade)
         } else {
           var needDeletedIndexPaths: [IndexPath] = []
           for i in newRowsCount..<oldRowsCount {
@@ -154,17 +154,26 @@ extension TableViewManager {
     switch data {
     case .SingleSection(var rows):
       var staledRowIndexPaths: [IndexPath] = []
+      /// NOTE: this is important, we need this newRows to get the new state change, and assign it back
+      /// The reason is that self.data is a enum and it is a value type.
+      var newRows: [Row] = rows
       for i in 0..<rows.count {
         if rows[i].getStale {
           staledRowIndexPaths.append(IndexPath(row: i, section: 0))
-          rows[i].getStale = false
+          newRows[i].getStale = false
         }
       }
+      // NOTE: set the ban refresh flag on so that we could ban the update from the data and only
+      // use update animation for the get stale one.
+      self.banRefreshTableWhenNewDataCome = true
+      self.data = .SingleSection(newRows)
+      self.banRefreshTableWhenNewDataCome = false
+
       if staledRowIndexPaths.count == 0 {
         break
       }
       tableView?.beginUpdates()
-      tableView?.reloadRows(at: staledRowIndexPaths, with: .automatic)
+      tableView?.reloadRows(at: staledRowIndexPaths, with: .fade)
       tableView?.endUpdates()
     case .MultiSection(var sections):
       var staledRowIndexPaths: [IndexPath] = []
@@ -180,7 +189,7 @@ extension TableViewManager {
         break
       }
       tableView?.beginUpdates()
-      tableView?.reloadRows(at: staledRowIndexPaths, with: .automatic)
+      tableView?.reloadRows(at: staledRowIndexPaths, with: .fade)
       tableView?.endUpdates()
       break
     }
