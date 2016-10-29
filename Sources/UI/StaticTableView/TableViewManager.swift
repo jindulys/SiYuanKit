@@ -172,7 +172,7 @@ extension TableViewManager {
       if staledRowIndexPaths.count == 0 {
         break
       }
-      if reload {
+      if !reload {
         tableView?.beginUpdates()
         tableView?.reloadRows(at: staledRowIndexPaths, with: .fade)
         tableView?.endUpdates()
@@ -192,7 +192,7 @@ extension TableViewManager {
       if staledRowIndexPaths.count == 0 {
         break
       }
-      if reload {
+      if !reload {
         tableView?.beginUpdates()
         tableView?.reloadRows(at: staledRowIndexPaths, with: .fade)
         tableView?.endUpdates()
