@@ -506,7 +506,7 @@
 					};
 					0EDABAF61D3C73C600A208FB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = L6WNB8Y8NX;
+						DevelopmentTeam = 655YRAVK2U;
 						DevelopmentTeamName = "yansong li";
 						ProvisioningStyle = Automatic;
 					};
@@ -1029,6 +1029,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 655YRAVK2U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1091,6 +1092,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 655YRAVK2U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

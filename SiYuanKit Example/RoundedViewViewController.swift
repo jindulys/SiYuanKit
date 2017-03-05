@@ -13,7 +13,7 @@ class RoundedViewViewController: UIViewController {
   let testView = UIView()
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.black
+    self.view.backgroundColor = UIColor.white
     testView.backgroundColor = UIColor.blue
     testView.frame = CGRect(x: 20.0, y: 180.0, width: 200.0, height: 60.0)
     testView.layer.cornerRadius = 30.0
