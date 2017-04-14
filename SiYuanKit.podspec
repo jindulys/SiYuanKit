@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.2.26"
+  s.version      = "1.2.29"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "10.0"
   s.ios.deployment_target = "10.0"
+  s.osx.deployment_target = "10.10"
   s.requires_arc = true
 
   ### Subspecs
