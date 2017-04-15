@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.2.32"
+  s.version      = "1.2.33"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -27,12 +27,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'YSOperations' do |ys|
-    ys.dependency 'SiYuanKit/DispatchQueue'
     ys.source_files = "Sources/YSOperations/**/*.*"
   end
 
   s.subspec 'Utilities' do |us|
-    us.dependency 'SiYuanKit/DispatchQueue'
     us.source_files = "Sources/Utilities/*.*"
   end
 
@@ -43,5 +41,9 @@ Pod::Spec.new do |s|
   s.subspec 'StaticTableView' do |ts|
     ts.dependency 'SiYuanKit/Extension'
     ts.source_files = "Sources/UI/StaticTableView/**/*.*"
+  end
+
+  s.subspec 'Algorithms' do |as|
+    as.source_files = "Sources/Algorithms/*.*"
   end
 end
