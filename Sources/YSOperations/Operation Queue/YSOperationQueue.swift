@@ -8,11 +8,11 @@
 
 import Foundation
 
-@objc public protocol YSOperationQueueDelegate: NSObjectProtocol {
-  @objc optional func operationQueue(operationQueue: YSOperationQueue, willAddOperation: Operation)
-  @objc optional func operationQueue(operationQueue: YSOperationQueue,
-                               operationDidFinish operation: Operation,
-                               withErrors errors: [Error])
+public protocol YSOperationQueueDelegate: NSObjectProtocol {
+  func operationQueue(operationQueue: YSOperationQueue, willAddOperation: Operation)
+  func operationQueue(operationQueue: YSOperationQueue,
+        operationDidFinish operation: Operation,
+                   withErrors errors: [Error])
 }
 
 /**
@@ -63,7 +63,7 @@ public class YSOperationQueue: OperationQueue {
         guard let queue = self, let operation = op else {
           return
         }
-        queue.delegate?.operationQueue?(operationQueue: queue,
+        queue.delegate?.operationQueue(operationQueue: queue,
           operationDidFinish: operation,
           withErrors: [])
         operation.dependencies.forEach {
@@ -71,7 +71,7 @@ public class YSOperationQueue: OperationQueue {
         }
       }
     }
-    delegate?.operationQueue?(operationQueue: self, willAddOperation: op)
+    delegate?.operationQueue(operationQueue: self, willAddOperation: op)
     super.addOperation(op)
   }
 }
