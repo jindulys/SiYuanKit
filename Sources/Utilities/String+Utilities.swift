@@ -15,7 +15,7 @@ extension String {
   /// Return ["company" : "Yelp",
   ///         "companyURL" : "https://engineeringblog.yelp.com"]
   /// Return nil if not a valid format.
-  func queryKeysAndValues() -> [String : String]? {
+  public func queryKeysAndValues() -> [String : String]? {
     let querySeperatedArray =
       self.characters.split(separator: "&").map(String.init).map { str -> [String] in
         return str.characters.split(separator: "=").map(String.init)
@@ -34,7 +34,7 @@ extension String {
   }
   
   // TODO(simonli): use binary search to improve performance.
-  func appendTrimmedRepeatedElementString(_ sec: String) -> String {
+  public func appendTrimmedRepeatedElementString(_ sec: String) -> String {
     if self.characters.count == 0 {
       return sec
     }

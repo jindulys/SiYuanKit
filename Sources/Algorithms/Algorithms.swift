@@ -222,7 +222,7 @@ public func binarySearchLessOrEqualIndex(_ inputs:[Int], target:Int) -> Int {
  
  - returns: finded index or not
  */
-func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
+public func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
   precondition(a.adjacentTest{ $0 <= $1 }, "The array should be ordered to use binary search")
   if range.lowerBound >= range.upperBound {
     // Base Case
@@ -250,7 +250,7 @@ func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
  
  - returns: finded index or not
  */
-func iterativeBinarySearch<T: Comparable>(_ a: [T], key: T) -> Int? {
+public func iterativeBinarySearch<T: Comparable>(_ a: [T], key: T) -> Int? {
   precondition(a.adjacentTest{ $0 <= $1 }, "The array should be ordered to use binary search")
   var range = 0..<a.count
   while range.lowerBound < range.upperBound {
@@ -618,7 +618,7 @@ extension Array {
    
    - returns: the result or nil if the array is empty
    */
-  func reduceByMap(_ combine:(Element, Element)->Element) -> Element? {
+  public func reduceByMap(_ combine:(Element, Element) -> Element) -> Element? {
     return first.map {
       self.dropFirst().reduce($0, combine)
     }
@@ -729,7 +729,7 @@ public extension String {
    
    - returns: whether or not contains all the english characters
    */
-  func containsAllEnglishCharacters() -> Bool {
+  public func containsAllEnglishCharacters() -> Bool {
     guard self.characters.count >= 26 else { return false }
     var englishCharacters: Set<Int> = []
     let a : Character = "a"
@@ -757,7 +757,7 @@ public extension String {
    
    - returns: a set of Characters
    */
-  func convertToCharacterSet() -> Set<Character> {
+  public func convertToCharacterSet() -> Set<Character> {
     var uniqueCharacters: Set<Character> = []
     for c in self.characters {
       if !uniqueCharacters.contains(c) {
@@ -772,7 +772,7 @@ public extension String {
    
    - returns: boolean value indicate whether or not a string is a palindrome
    */
-  func isPalindrome() -> Bool {
+  public func isPalindrome() -> Bool {
     let reversed = String(self.characters.reversed())
     return reversed == self
   }
@@ -921,7 +921,7 @@ open class ListNode {
   }
   
   /// generate a listNode with array.
-  static func generateListNodeFromArray(_ array: [Int]) -> ListNode? {
+  public static func generateListNodeFromArray(_ array: [Int]) -> ListNode? {
     if array.count == 0 {
       return nil
     }
@@ -962,8 +962,8 @@ public func ==(lhs: ListNode, rhs: ListNode) -> Bool {
  *   DoubleListNode Class
  */
 open class DoubleListNode<T>{
-  var value: T
-  var next: DoubleListNode?
+  public var value: T
+  public var next: DoubleListNode?
   // NOTE: weak here to prevent retain cycle.
   weak var pre: DoubleListNode?
   
@@ -1322,15 +1322,14 @@ public extension AVLTree {
   }
 }
 
-
 public final class AVLNode<T : Comparable> {
-  typealias Element = T
-  let left : AVLNode<Element>?
-  let right : AVLNode<Element>?
+  public typealias Element = T
+  public let left : AVLNode<Element>?
+  public let right : AVLNode<Element>?
   public let count : UInt
-  let depth : UInt
-  let balance : Int
-  let value : Element!
+  public let depth : UInt
+  public let balance : Int
+  public let value : Element!
   
   public convenience init(_ value : T){
     self.init(value: value, left: nil, right: nil)
@@ -1574,8 +1573,8 @@ open class BinaryIndexedTree {
   // we ignore 0th element, since it's no sence to count non-exist element's occurence.
   
   // size is actually the maximum count that could occur.
-  let size: Int
-  var tree: [Int]
+  public let size: Int
+  private var tree: [Int]
   
   
   public init(size: Int) {
@@ -1774,16 +1773,16 @@ public struct Heap<T: Comparable> : HeapProtocol {
 // MARK: - Trie Data Structure
 
 /// The trie node data structure, which contains information that a trie node needs.
-open class TrieNode {
+public class TrieNode {
   
   /// The character for this trie node.
-  var character: Character
+  public var character: Character
   
   /// Indicate whether or not this node is an end for a word.
-  var isEnd: Bool
+  public var isEnd: Bool
   
   /// The children for this node
-  var children: [Character : TrieNode]
+  public var children: [Character : TrieNode]
   
   init(character: Character) {
     self.character = character
@@ -1804,7 +1803,7 @@ open class Trie {
   }
   
   /// Insert a word to trie.
-  func insert(word: String) {
+  public func insert(word: String) {
     var node = root
     var wordCharacters = [Character](word.characters)
     
@@ -1822,7 +1821,7 @@ open class Trie {
   }
   
   /// Whether or not word is a word in the trie
-  func isWord(word: String) -> Bool {
+  public func isWord(word: String) -> Bool {
     let wordCharacters = [Character](word.characters)
     var node = root
     
@@ -1838,7 +1837,7 @@ open class Trie {
   }
   
   /// Whether or not prefix is a prefix in the trie.
-  func isWordPrefix(prefix: String) -> Bool {
+  public func isWordPrefix(prefix: String) -> Bool {
     let wordCharacters = [Character](prefix.characters)
     var node = root
     
