@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 //! Project version number for SiYuan iOS.
-FOUNDATION_EXPORT double SiYuanVersionNumber;
+FOUNDATION_EXPORT double SiYuanKitVersionNumber;
 
 //! Project version string for SiYuan iOS.
-FOUNDATION_EXPORT const unsigned char SiYuanVersionString[];
+FOUNDATION_EXPORT const unsigned char SiYuanKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SiYuan_iOS/PublicHeader.h>
 

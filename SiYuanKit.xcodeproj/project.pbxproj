@@ -17,7 +17,7 @@
 		0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A731D45638F00EB52F3 /* OperationObserver.swift */; };
 		0E2F7A771D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
 		0E2F7A781D45684A00EB52F3 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A761D45684A00EB52F3 /* BlockObserver.swift */; };
-		0E2FB4031EA2B6990057C3B2 /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E2FB4031EA2B6990057C3B2 /* SiYuanKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuanKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E2FB4051EA2B72C0057C3B2 /* GCDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B71BA1D41C67800D41553 /* GCDQueue.swift */; };
 		0E2FB4061EA2B7300057C3B2 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A671D441E3300EB52F3 /* Promise.swift */; };
 		0E2FB4071EA2B7480057C3B2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F7A6B1D444CAC00EB52F3 /* Time.swift */; };
@@ -56,8 +56,8 @@
 		0EC36E5F1D5830B500366936 /* RoundedViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC36E5E1D5830B500366936 /* RoundedViewViewController.swift */; };
 		0EC5FE541D4EE9B7006E14C5 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE531D4EE9B7006E14C5 /* ItemCell.swift */; };
 		0EC5FE571D4EEC61006E14C5 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5FE561D4EEC61006E14C5 /* UIViewExtensions.swift */; };
-		0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0EDABB131D3C7D7A00A208FB /* SiYuan.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EDABB121D3C7D7000A208FB /* SiYuanKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuanKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EDABB131D3C7D7A00A208FB /* SiYuanKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDABB111D3C7D7000A208FB /* SiYuanKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB161D3C7E6900A208FB /* OperationCondition.swift */; };
 		0EDABB1D1D3C7E6900A208FB /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB161D3C7E6900A208FB /* OperationCondition.swift */; };
 		0EDABB1E1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDABB181D3C7E6900A208FB /* YSOperationQueue.swift */; };
@@ -145,7 +145,7 @@
 		0EDABB051D3C74C800A208FB /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDABB0F1D3C7AED00A208FB /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		0EDABB101D3C7AED00A208FB /* Info-Watch.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Watch.plist"; sourceTree = "<group>"; };
-		0EDABB111D3C7D7000A208FB /* SiYuan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiYuan.h; sourceTree = "<group>"; };
+		0EDABB111D3C7D7000A208FB /* SiYuanKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiYuanKit.h; sourceTree = "<group>"; };
 		0EDABB161D3C7E6900A208FB /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
 		0EDABB181D3C7E6900A208FB /* YSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSOperationQueue.swift; sourceTree = "<group>"; };
 		0EDABB1A1D3C7E6900A208FB /* BlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockOperation.swift; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 				0E2F7A661D441E0200EB52F3 /* Then */,
 				0E2F7A6A1D444C7B00EB52F3 /* Utilities */,
 				0EDABB141D3C7E6900A208FB /* YSOperations */,
-				0EDABB111D3C7D7000A208FB /* SiYuan.h */,
+				0EDABB111D3C7D7000A208FB /* SiYuanKit.h */,
 				0EDABB0F1D3C7AED00A208FB /* Info-iOS.plist */,
 				0E2FB3FF1EA2B5180057C3B2 /* Info-OSX.plist */,
 				0EDABB101D3C7AED00A208FB /* Info-Watch.plist */,
@@ -411,7 +411,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E2FB4031EA2B6990057C3B2 /* SiYuan.h in Headers */,
+				0E2FB4031EA2B6990057C3B2 /* SiYuanKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +419,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDABB121D3C7D7000A208FB /* SiYuan.h in Headers */,
+				0EDABB121D3C7D7000A208FB /* SiYuanKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +427,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDABB131D3C7D7A00A208FB /* SiYuan.h in Headers */,
+				0EDABB131D3C7D7A00A208FB /* SiYuanKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
