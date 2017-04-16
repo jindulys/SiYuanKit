@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS) || os(watchOS) || os(OSX)
+
 /**
   The `BlockObserver` is a way to attach arbitrary blocks to significant events in an 
  `Operation`'s lifecycle.
@@ -41,3 +43,5 @@ struct BlockObserver: OperationObserver {
     self.finishHandler?(operation, errors)
   }
 }
+
+#endif

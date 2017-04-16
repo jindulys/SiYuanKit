@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS) || os(watchOS) || os(OSX)
+
 /**
   The protocol that types may implement if they wish to be notified of significant
   operation lifecycle events.
@@ -25,3 +27,5 @@ public protocol OperationObserver {
    */
   func operationDidFinish(operation: YSOperation, errors: [Error])
 }
+
+#endif

@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS) || os(watchOS) || os(OSX)
+
 /**
   The State enum which defines state an operation could be in.
  */
@@ -296,3 +298,5 @@ extension NSLock {
     return result
   }
 }
+
+#endif

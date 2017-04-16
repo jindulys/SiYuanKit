@@ -8,6 +8,8 @@
 
 import Foundation
 
+#if os(iOS) || os(watchOS) || os(OSX)
+
 public protocol YSOperationQueueDelegate: NSObjectProtocol {
   func operationQueue(operationQueue: YSOperationQueue, willAddOperation: Operation)
   func operationQueue(operationQueue: YSOperationQueue,
@@ -75,3 +77,5 @@ public class YSOperationQueue: OperationQueue {
     super.addOperation(op)
   }
 }
+
+#endif

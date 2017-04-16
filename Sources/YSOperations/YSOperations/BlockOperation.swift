@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if os(iOS) || os(watchOS) || os(OSX)
 import Dispatch
 
 public typealias OperationBlock = (@escaping (Void) -> Void) -> Void
@@ -59,3 +61,5 @@ public class BlockOperation: YSOperation {
   override func finished(errors: [Error]) {
   }
 }
+
+#endif

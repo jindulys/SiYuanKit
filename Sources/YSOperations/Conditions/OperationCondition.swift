@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if os(iOS) || os(watchOS) || os(OSX)
 import Dispatch
 
 let OperationConditionKey = "OperationCondition"
@@ -87,3 +89,5 @@ struct OperationConditionEvaluator {
     }
   }
 }
+
+#endif

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if os(iOS) || os(watchOS) || os(OSX)
 import Dispatch
 
 /**
@@ -61,3 +63,5 @@ class ExclusivityController {
     }
   }
 }
+
+#endif
