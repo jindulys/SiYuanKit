@@ -778,12 +778,6 @@ public extension String {
   }
 }
 
-public extension Double {
-  func format(_ f: String) -> String {
-    return NSString(format: "%\(f)f" as NSString, self) as String
-  }
-}
-
 // MARK: Functional Class
 
 /**

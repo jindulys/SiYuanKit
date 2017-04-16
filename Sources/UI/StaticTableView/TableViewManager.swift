@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 /// A Protocol Defines a data source that provides data to display for this tableViewManager.
 public protocol TableViewManagerDataSource: class {

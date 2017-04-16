@@ -8,6 +8,7 @@
 // NOTE: No dependency
 
 import Foundation
+import Dispatch
 
 /// Enumaration to conveniently operate on GCDQueue.
 public enum GCDQueue: Comparable {

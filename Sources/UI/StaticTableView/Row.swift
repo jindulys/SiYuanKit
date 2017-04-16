@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 /// The action block to be executed when cell is selected.
 public typealias RowAction = () -> ()

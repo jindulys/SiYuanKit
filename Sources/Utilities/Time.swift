@@ -8,6 +8,7 @@
 // NOTE: No dependency
 
 import Foundation
+import Dispatch
 
 public struct Time {
   private static let wastingTimeGroup = DispatchGroup()

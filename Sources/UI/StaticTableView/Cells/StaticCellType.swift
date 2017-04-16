@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 /// Protocol used to define the behaviour a cell should have to use `Row`.
 public protocol StaticCellType: class {

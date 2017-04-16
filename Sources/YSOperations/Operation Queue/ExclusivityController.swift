@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Dispatch
 
 /**
   `ExclusivityController` is a singleton to keep track of all the in-flight

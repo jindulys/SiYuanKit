@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 public class Value1Cell: UITableViewCell, StaticCellType {
   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

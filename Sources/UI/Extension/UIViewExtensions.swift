@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 // MARK: Auto layout.
 extension UIView {

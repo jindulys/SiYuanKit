@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Dispatch
 
 public typealias OperationBlock = (@escaping (Void) -> Void) -> Void
 

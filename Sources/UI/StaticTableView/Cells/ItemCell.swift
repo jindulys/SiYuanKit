@@ -9,6 +9,7 @@
 import Foundation
 
 #if os(iOS)
+import UIKit
 
 /// This cell is used to display a normal item, a title and a body.
 public class ItemCell: UITableViewCell {
