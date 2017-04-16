@@ -32,6 +32,9 @@
 		0E2FB42B1EA2E5EA0057C3B2 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42A1EA2E5EA0057C3B2 /* Algorithms.swift */; };
 		0E2FB42C1EA2E6340057C3B2 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42A1EA2E5EA0057C3B2 /* Algorithms.swift */; };
 		0E2FB42D1EA2E6350057C3B2 /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42A1EA2E5EA0057C3B2 /* Algorithms.swift */; };
+		0E2FB42F1EA2EA570057C3B2 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42E1EA2EA570057C3B2 /* String+Utilities.swift */; };
+		0E2FB4301EA2EA570057C3B2 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42E1EA2EA570057C3B2 /* String+Utilities.swift */; };
+		0E2FB4311EA2EA570057C3B2 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2FB42E1EA2EA570057C3B2 /* String+Utilities.swift */; };
 		0E53FAC61D4E99340017D932 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FAC51D4E99340017D932 /* Row.swift */; };
 		0E53FAC91D4E9EBA0017D932 /* StaticCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */; };
 		0E53FACB1D4EAC110017D932 /* Value1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E53FACA1D4EAC110017D932 /* Value1Cell.swift */; };
@@ -113,6 +116,7 @@
 		0E2FB3F51EA2B3DB0057C3B2 /* SiYuan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiYuan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2FB3FF1EA2B5180057C3B2 /* Info-OSX.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-OSX.plist"; sourceTree = "<group>"; };
 		0E2FB42A1EA2E5EA0057C3B2 /* Algorithms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
+		0E2FB42E1EA2EA570057C3B2 /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
 		0E53FAC51D4E99340017D932 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		0E53FAC81D4E9EBA0017D932 /* StaticCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticCellType.swift; sourceTree = "<group>"; };
 		0E53FACA1D4EAC110017D932 /* Value1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value1Cell.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				0E2F7A6B1D444CAC00EB52F3 /* Time.swift */,
+				0E2FB42E1EA2EA570057C3B2 /* String+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				0E2FB40D1EA2B75F0057C3B2 /* YSOperationQueue.swift in Sources */,
 				0E2FB40F1EA2B7670057C3B2 /* YSOperation.swift in Sources */,
 				0E2FB4081EA2B74F0057C3B2 /* OperationCondition.swift in Sources */,
+				0E2FB4311EA2EA570057C3B2 /* String+Utilities.swift in Sources */,
 				0E2FB4091EA2B7520057C3B2 /* OperationObserver.swift in Sources */,
 				0E2FB40A1EA2B7550057C3B2 /* BlockObserver.swift in Sources */,
 				0E2FB42D1EA2E6350057C3B2 /* Algorithms.swift in Sources */,
@@ -718,6 +724,7 @@
 				0E2F7A681D441E3300EB52F3 /* Promise.swift in Sources */,
 				0EDABB221D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0E53FAC61D4E99340017D932 /* Row.swift in Sources */,
+				0E2FB42F1EA2EA570057C3B2 /* String+Utilities.swift in Sources */,
 				0E2F7A6C1D444CAC00EB52F3 /* Time.swift in Sources */,
 				0EC5FE571D4EEC61006E14C5 /* UIViewExtensions.swift in Sources */,
 				0EDABB1C1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
@@ -739,6 +746,7 @@
 				0E2F7A751D45638F00EB52F3 /* OperationObserver.swift in Sources */,
 				0EDABB231D3C7E6900A208FB /* YSOperation.swift in Sources */,
 				0EDABB1D1D3C7E6900A208FB /* OperationCondition.swift in Sources */,
+				0E2FB4301EA2EA570057C3B2 /* String+Utilities.swift in Sources */,
 				0EDABB1F1D3C7E6900A208FB /* YSOperationQueue.swift in Sources */,
 				0E2F7A691D441E3300EB52F3 /* Promise.swift in Sources */,
 				0E2FB42C1EA2E6340057C3B2 /* Algorithms.swift in Sources */,
