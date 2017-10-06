@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SiYuanKit"
-  s.version      = "1.2.35"
+  s.version      = "1.4.1"
   s.summary      = "SiYuanKit is a personal swift toolbox."
 
   s.description  = "SiYuanKit is a personal swift toolbox. Treasures."
@@ -46,4 +46,8 @@ Pod::Spec.new do |s|
   s.subspec 'Algorithms' do |as|
     as.source_files = "Sources/Algorithms/*.*"
   end
+
+  s.subspec 'Components' do |cs|
+    cs.source_files = "Sources/UI/Components/*.*"
+  end 
 end

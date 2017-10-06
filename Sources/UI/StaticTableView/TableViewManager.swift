@@ -266,10 +266,10 @@ extension TableViewManager: UITableViewDataSource {
   }
   
   open func tableView(_ tableView: UITableView,
-             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                      cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let row = rowForIndexPath(indexPath) {
       let cell = tableView.dequeueReusableCell(withIdentifier: row.cellIdentifier,
-                                                          for: indexPath)
+                                               for: indexPath)
       if let staticCell = cell as? StaticCellType {
         staticCell.configure(row: row)
       }

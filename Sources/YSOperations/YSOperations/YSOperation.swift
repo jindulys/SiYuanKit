@@ -278,7 +278,7 @@ public enum YSOperationError: Error {
 }
 
 extension Operation {
-  public func addCompletionBlock(_ block: @escaping (Void) -> Void) {
+  public func addCompletionBlock(_ block: @escaping () -> Void) {
     if let existing = completionBlock {
       completionBlock = {
         block()
