@@ -14,7 +14,7 @@ import UIKit
 // MARK: Auto layout.
 extension UIView {
   /// Add a view as subview, turn off autoresizingmask.
-  open func addAutoLayoutSubView(_ view: UIView) {
+  public func addAutoLayoutSubView(_ view: UIView) {
     view.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(view)
   }
