@@ -78,7 +78,7 @@ open class EasyScrollView: UIScrollView {
 }
 
 extension EasyScrollView {
-  private func buildConstraints() {
+  fileprivate func buildConstraints() {
     contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
