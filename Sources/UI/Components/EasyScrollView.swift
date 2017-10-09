@@ -18,15 +18,15 @@ open class EasyScrollView: UIScrollView {
   public let contentView: UIView
 
   /// Those two constraints determine scroll view at least have screen size content.
-  private var contentMinimumHeightConstraint: NSLayoutConstraint?
-  private var contentMinimumWidthConstraint: NSLayoutConstraint?
+  fileprivate var contentMinimumHeightConstraint: NSLayoutConstraint?
+  fileprivate var contentMinimumWidthConstraint: NSLayoutConstraint?
 
   /// This field is used for correct content offset calculation when keyboard shows up.
   /// This one will always at the center of screen.
-  private var activeTextField: UITextField?
+  fileprivate var activeTextField: UITextField?
 
   /// Keyboard height.
-  private var keyboardHeight: CGFloat = 0.0
+  fileprivate var keyboardHeight: CGFloat = 0.0
 
   /// A delegate which is used for user to notice textField related event.
   public var easyScrollViewDelegate: EasyScrollViewTextFieldDelegate?
@@ -91,7 +91,7 @@ extension EasyScrollView {
     contentMinimumHeightConstraint?.priority = .defaultLow
   }
 
-  private func handleTextFieldWith(view: UIView) {
+  fileprivate func handleTextFieldWith(view: UIView) {
     if let textField = view as? UITextField {
       textField.delegate = self
       return
@@ -101,7 +101,7 @@ extension EasyScrollView {
     }
   }
 
-  @objc private func adjustForKeyboard(notification: Notification) {
+  @objc func adjustForKeyboard(notification: Notification) {
     guard let userInfo = notification.userInfo else {
       return
     }
@@ -116,7 +116,7 @@ extension EasyScrollView {
     adjustScrollViewWithTextFieldEvent()
   }
 
-  private func adjustScrollViewWithTextFieldEvent() {
+  fileprivate func adjustScrollViewWithTextFieldEvent() {
     var offset: CGPoint = .zero
     if keyboardHeight == 0.0 {
       offset = .zero
